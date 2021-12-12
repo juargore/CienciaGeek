@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Ciencia Geek</string>
+    <string name="adUnitId">ca-app-pub-3940256099942544~3347511713</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    <string name="menu_admin">Administrator</string>
+    <string name="menu_language">Language</string>
+    <string name="menu_one">Menu one</string>
+    <string name="menu_two">Menu two</string>
+    <string name="menu_three">Menu three</string>
+    <string name="menu_four">Menu four</string>
+
+    <string name="url_one">https://www.brisa-remodeling.com/</string>
+    <string name="url_two">https://www.cienciageek.com/contact-us/</string>
+    <string name="url_three">https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml</string>
+    <string name="url_four">https://developers.google.com/admob/android/banner</string>
+
+</resources>
