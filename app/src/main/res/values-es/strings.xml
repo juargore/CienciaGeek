@@ -17,4 +17,6 @@
     <string name="url_three">https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml</string>
     <string name="url_four">https://developers.google.com/admob/android/banner</string>
 
+    <string name="contact_us">Contacto</string>
+
 </resources>

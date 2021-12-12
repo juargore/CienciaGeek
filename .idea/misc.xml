@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_facebook.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25833333333333336" />
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_slide_handle.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/custom_toolbar.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/fragment_content.xml" value="0.228125" />
