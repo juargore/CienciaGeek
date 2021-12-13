@@ -17,7 +17,21 @@
     <string name="url_three">https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml</string>
     <string name="url_four">https://developers.google.com/admob/android/banner</string>
 
-
     <string name="contact_us">Contact us</string>
+    <string name="powered_by">Powered by Ciencia Geek</string>
+
+    <string name="popup_admin_title">Login Administrator</string>
+    <string name="popup_admin_description">Hey! This section is only for Admins of the App.</string>
+    <string name="popup_admin_accept">Accept</string>
+    <string name="popup_admin_cancel">Cancel</string>
+    <string name="popup_admin_username">Username</string>
+    <string name="popup_admin_password">Password</string>
+    <string name="popup_admin_not_found">Invalid username and/or password. \nPlease try again.</string>
+
+    <string name="popup_language_title">Language options</string>
+    <string name="popup_language_select">Select an option</string>
+    <string name="popup_language_description">Description here</string>
+    <string name="popup_language_english">English</string>
+    <string name="popup_language_spanish">Spanish</string>
 
 </resources>

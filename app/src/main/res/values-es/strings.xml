@@ -18,5 +18,20 @@
     <string name="url_four">https://developers.google.com/admob/android/banner</string>
 
     <string name="contact_us">Contacto</string>
+    <string name="powered_by">Impulsado por Ciencia Geek</string>
+
+    <string name="popup_admin_title">Login Administrador</string>
+    <string name="popup_admin_description">Hey! Esta sección es sólo para Administradores de la Aplicación.</string>
+    <string name="popup_admin_accept">Aceptar</string>
+    <string name="popup_admin_cancel">Cancelar</string>
+    <string name="popup_admin_username">Usuario</string>
+    <string name="popup_admin_password">Contraseña</string>
+    <string name="popup_admin_not_found">Usuario y/o contraseña no válidos. \nIntenta nuevamente.</string>
+
+    <string name="popup_language_title">Opciones de lenguaje</string>
+    <string name="popup_language_select">Selecciona una opción</string>
+    <string name="popup_language_description">Descripción aquí</string>
+    <string name="popup_language_english">Inglés</string>
+    <string name="popup_language_spanish">Español</string>
 
 </resources>

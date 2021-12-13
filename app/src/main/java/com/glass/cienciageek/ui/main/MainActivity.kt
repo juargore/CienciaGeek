@@ -1,14 +1,23 @@
-package com.glass.cienciageek.ui
+package com.glass.cienciageek.ui.main
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.Window
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.glass.cienciageek.R
+import com.glass.cienciageek.entities.Language
 import com.glass.cienciageek.entities.UrlEspEng
 import com.glass.cienciageek.ui.content.ContentFragment
 import com.google.android.material.navigation.NavigationView
@@ -67,22 +76,68 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             else -> UrlEspEng(title = "Four", url = resources.getString(R.string.url_four))
         }
 
-        val fragment = ContentFragment()
-        val args = Bundle().apply {
-            putSerializable("links", links)
-        }
-        fragment.arguments = args
+        val args = Bundle().apply { putSerializable("links", links) }
+        val fragment = ContentFragment().apply { arguments = args }
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.home_content, fragment)
-            //addToBackStack(from?.name)
-            commit()
+            replace(R.id.home_content, fragment); commit()
         }
 
         title = ""
         drawerLayout.closeDrawer(GravityCompat.START)
 
         return true
+    }
+
+    @Suppress("DEPRECATION")
+    private fun showDialogAdmin() {
+        Dialog(this, R.style.FullDialogTheme).apply {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setContentView(R.layout.popup_credentials)
+
+            val username = findViewById<EditText>(R.id.etUser)
+            val password = findViewById<EditText>(R.id.etPass)
+            val button = findViewById<Button>(R.id.btnAccept)
+            val error = findViewById<TextView>(R.id.txtError)
+
+            button.setOnClickListener {
+                if(username.text.toString() == "" && password.text.toString() == "") {
+                    error.visibility = View.GONE
+                    // TODO go to next admin screen
+                    Log.e("--", "SUCCESS!")
+                } else {
+                    error.visibility = View.VISIBLE
+                    Handler().postDelayed({
+                        error.visibility = View.GONE
+                    }, 3000)
+                }
+            }
+        }.show()
+    }
+
+
+    private fun showDialogLanguage() {
+        Dialog(this, R.style.FullDialogTheme).apply {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setContentView(R.layout.popup_language)
+
+            val spinner = findViewById<Spinner>(R.id.spinner)
+            val adapter = LanguageAdapter(context)
+
+            spinner.adapter = adapter
+
+            spinner.onItemSelectedListener =  object : AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
+                override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, p3: Long) {
+                    val item = parent?.getItemAtPosition(pos) as Language?
+                    Log.e("--", "Selected: ${item?.language}")
+                    //TODO update language
+                }
+            }
+
+        }.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -92,17 +147,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
-            R.id.nav_admin -> {
-                //TODO
-                true
-            }
-            R.id.nav_language -> {
-                //TODO
-                true
-            }
-            else -> {
-                true
-            }
+            R.id.nav_admin -> { showDialogAdmin(); true }
+            R.id.nav_language -> { showDialogLanguage(); true }
+            else -> true
         }
     }
 }

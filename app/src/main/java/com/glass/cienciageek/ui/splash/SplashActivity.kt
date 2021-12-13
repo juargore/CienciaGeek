@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.glass.cienciageek.R
-import com.glass.cienciageek.ui.MainActivity
+import com.glass.cienciageek.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 @Suppress("DEPRECATION")
