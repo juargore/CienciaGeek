@@ -1,21 +1,26 @@
 <resources>
     <string name="app_name">Ciencia Geek</string>
     <string name="adUnitId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="app_version">Version %s</string>
 
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
 
     <string name="menu_admin">Administrator</string>
     <string name="menu_language">Language</string>
-    <string name="menu_one">Menu one</string>
-    <string name="menu_two">Menu two</string>
-    <string name="menu_three">Menu three</string>
-    <string name="menu_four">Menu four</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_nests">Pokemon nests</string>
+    <string name="menu_farming">Farming zones</string>
+    <string name="menu_community">Community day</string>
+    <string name="menu_hours">Spotlight hour</string>
+    <string name="menu_news">News</string>
 
-    <string name="url_one">https://www.brisa-remodeling.com/</string>
-    <string name="url_two">https://www.cienciageek.com/contact-us/</string>
-    <string name="url_three">https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml</string>
-    <string name="url_four">https://developers.google.com/admob/android/banner</string>
+    <string name="url_home">https://app.pokecoord.com/</string>
+    <string name="url_nests">https://app.pokecoord.com/pokemon-nests/ </string>
+    <string name="url_farming">https://app.pokecoord.com/pokemon-go-locations/ </string>
+    <string name="url_community">https://app.pokecoord.com/pokemon-go-community-day/ </string>
+    <string name="url_hours">https://app.pokecoord.com/pokemon-spotlight-hour/ </string>
+    <string name="url_news">https://app.pokecoord.com/category/pokemon-go-news/ </string>
 
     <string name="contact_us">Contact us</string>
     <string name="powered_by">Powered by Ciencia Geek</string>
@@ -34,4 +39,16 @@
     <string name="popup_language_english">English</string>
     <string name="popup_language_spanish">Spanish</string>
 
+    <string name="notification_header">Send a notification</string>
+    <string name="notification_type">Notification type</string>
+    <string name="notification_language">Notification language</string>
+    <string name="notification_title">Notification title</string>
+    <string name="notification_title_desc">WE HAVE A NEW VIDEO IN POKECOORD</string>
+    <string name="notification_title_edit">Edit title</string>
+    <string name="notification_message">Notification message</string>
+    <string name="notification_message_desc">Come to watch it! 😎</string>
+    <string name="notification_edit_message">Edit message</string>
+    <string name="notification_url_to_open">Url to open (if necessary)</string>
+    <string name="notification_url_to_open_desc">Insert the Url here</string>
+    <string name="notification_send_now">Send notification now</string>
 </resources>

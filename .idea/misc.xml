@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_facebook.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/ic_slide_handle.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/drawable/language_outline.xml" value="0.25833333333333336" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/activity_notifications.xml" value="0.264" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
-        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.2421875" />
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.4" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/custom_toolbar.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/fragment_content.xml" value="0.228125" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/header_spinner_language.xml" value="0.2421875" />
@@ -17,6 +19,7 @@
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/navigation_header.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/popup_credentials.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/popup_language.xml" value="0.2421875" />
+        <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/layout/spinner_item_simple.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/menu/home_admin_menu.xml" value="0.2421875" />
         <entry key="..\:/GitFiles/CienciaGeek/app/src/main/res/menu/home_navigation_drawer.xml" value="0.2421875" />
       </map>

@@ -1,21 +1,26 @@
 <resources>
     <string name="app_name">Ciencia Geek</string>
     <string name="adUnitId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="app_version">Versión %s</string>
 
     <string name="navigation_drawer_open">Abierto</string>
     <string name="navigation_drawer_close">Cerrado</string>
 
     <string name="menu_admin">Administrador</string>
     <string name="menu_language">Lenguaje</string>
-    <string name="menu_one">Menu uno</string>
-    <string name="menu_two">Menu dos</string>
-    <string name="menu_three">Menu tres</string>
-    <string name="menu_four">Menu cuatro</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_nests">Nidos Pokemon</string>
+    <string name="menu_farming">Zonas de farmeo</string>
+    <string name="menu_community">Día de la comunidad</string>
+    <string name="menu_hours">Horas destacadas</string>
+    <string name="menu_news">Novedades</string>
 
-    <string name="url_one">https://www.brisa-remodeling.com/</string>
-    <string name="url_two">https://www.cienciageek.com/contact-us/</string>
-    <string name="url_three">https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml</string>
-    <string name="url_four">https://developers.google.com/admob/android/banner</string>
+    <string name="url_home">https://appes.pokecoord.com/</string>
+    <string name="url_nests">https://appes.pokecoord.com/pokemon-nests/ </string>
+    <string name="url_farming">https://appes.pokecoord.com/pokemon-go-locations/ </string>
+    <string name="url_community">https://appes.pokecoord.com/pokemon-go-community-day/ </string>
+    <string name="url_hours">https://appes.pokecoord.com/pokemon-spotlight-hour/ </string>
+    <string name="url_news">https://appes.pokecoord.com/category/pokemon-go-news/ </string>
 
     <string name="contact_us">Contacto</string>
     <string name="powered_by">Impulsado por Ciencia Geek</string>
@@ -33,5 +38,18 @@
     <string name="popup_language_description">Descripción aquí</string>
     <string name="popup_language_english">Inglés</string>
     <string name="popup_language_spanish">Español</string>
+
+    <string name="notification_header">Enviar una notificación</string>
+    <string name="notification_type">Tipo de notificación</string>
+    <string name="notification_language">Lenguage de la notificación</string>
+    <string name="notification_title">Título de la notificación</string>
+    <string name="notification_title_desc">NUEVO VIDEO EN CIENCIA GEEK</string>
+    <string name="notification_title_edit">Editar título</string>
+    <string name="notification_message">Mensaje de la notificación</string>
+    <string name="notification_message_desc">Ven a verlo! 😎</string>
+    <string name="notification_edit_message">Editar message</string>
+    <string name="notification_url_to_open">Url que a abrir (sólo si aplica)</string>
+    <string name="notification_url_to_open_desc">Inserta la Url aquí</string>
+    <string name="notification_send_now">Enviar notificación ahora</string>
 
 </resources>

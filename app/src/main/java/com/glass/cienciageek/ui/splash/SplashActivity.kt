@@ -11,7 +11,7 @@ import com.glass.cienciageek.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 @Suppress("DEPRECATION")
-@SuppressLint("CustomSplashScreen", "SetTextI18n")
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.SplashScreenTheme)
@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
         packageManager?.getPackageInfo(
             packageName,
             PackageManager.GET_ACTIVITIES)?.apply {
-            txtVersion.text = "Version $versionName"
+            txtVersion.text = resources.getString(R.string.app_version, versionName)
         }
     }
 }

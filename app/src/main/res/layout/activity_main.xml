@@ -10,9 +10,9 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginTop="42dp"
-            android:src="@drawable/logo_ciencia_geek"
+            android:layout_height="40dp"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/logo_poke_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

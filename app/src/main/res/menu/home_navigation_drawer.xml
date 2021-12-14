@@ -6,24 +6,34 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_one"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:title="@string/menu_one" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_home" />
 
         <item
-            android:id="@+id/nav_two"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:title="@string/menu_two" />
+            android:id="@+id/nav_nests"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_nests" />
 
         <item
-            android:id="@+id/nav_three"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:title="@string/menu_three" />
+            android:id="@+id/nav_farming"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_farming" />
 
         <item
-            android:id="@+id/nav_four"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:title="@string/menu_four" />
+            android:id="@+id/nav_community"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_community" />
+
+        <item
+            android:id="@+id/nav_hour"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_hours" />
+
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_news" />
     </group>
 
 </menu>

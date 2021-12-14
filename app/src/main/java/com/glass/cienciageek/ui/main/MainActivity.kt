@@ -1,6 +1,8 @@
 package com.glass.cienciageek.ui.main
 
 import android.app.Dialog
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -20,7 +22,9 @@ import com.glass.cienciageek.R
 import com.glass.cienciageek.entities.Language
 import com.glass.cienciageek.entities.UrlEspEng
 import com.glass.cienciageek.ui.content.ContentFragment
+import com.glass.cienciageek.ui.notifications.NotificationsActivity
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
@@ -49,14 +53,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById<NavigationView>(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener(this)
+        navigationView.itemIconTintList = null
 
         val menuItem = navigationView.menu.getItem(0)
         onNavigationItemSelected(menuItem)
         menuItem.isChecked = true
 
         val header = navigationView.getHeaderView(0)
-        header.setOnClickListener {
-            // TODO
+        val v = header.findViewById<TextView>(R.id.txtVersionMain)
+        packageManager?.getPackageInfo(
+            packageName,
+            PackageManager.GET_ACTIVITIES)?.apply {
+            v.text = resources.getString(R.string.app_version, versionName)
         }
     }
 
@@ -70,10 +78,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val links = when(item.itemId) {
-            R.id.nav_one -> UrlEspEng(title = "One", url = resources.getString(R.string.url_one))
-            R.id.nav_two -> UrlEspEng(title = "Two", url = resources.getString(R.string.url_two))
-            R.id.nav_three -> UrlEspEng(title = "Three", url = resources.getString(R.string.url_three))
-            else -> UrlEspEng(title = "Four", url = resources.getString(R.string.url_four))
+            R.id.nav_home -> UrlEspEng(title = "Home", url = resources.getString(R.string.url_home))
+            R.id.nav_nests -> UrlEspEng(title = "Pokemon nests", url = resources.getString(R.string.url_nests))
+            R.id.nav_farming -> UrlEspEng(title = "Farming zones", url = resources.getString(R.string.url_farming))
+            R.id.nav_community -> UrlEspEng(title = "Community day", url = resources.getString(R.string.url_community))
+            R.id.nav_hour -> UrlEspEng(title = "Spotlight hour", url = resources.getString(R.string.url_hours))
+            else -> UrlEspEng(title = "News", url = resources.getString(R.string.url_news))
         }
 
         val args = Bundle().apply { putSerializable("links", links) }
@@ -101,11 +111,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val button = findViewById<Button>(R.id.btnAccept)
             val error = findViewById<TextView>(R.id.txtError)
 
+            // TODO: Validate credentials
             button.setOnClickListener {
                 if(username.text.toString() == "" && password.text.toString() == "") {
                     error.visibility = View.GONE
-                    // TODO go to next admin screen
-                    Log.e("--", "SUCCESS!")
+                    startActivity(Intent(this@MainActivity, NotificationsActivity::class.java))
+                    this.dismiss()
                 } else {
                     error.visibility = View.VISIBLE
                     Handler().postDelayed({
@@ -127,6 +138,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val adapter = LanguageAdapter(context)
 
             spinner.adapter = adapter
+            spinner.setSelection(1)
 
             spinner.onItemSelectedListener =  object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
