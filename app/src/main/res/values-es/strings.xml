@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ciencia Geek</string>
+    <string name="app_name">PokeCoord App</string>
     <string name="adUnitId">ca-app-pub-3940256099942544~3347511713</string>
     <string name="app_version">Versión %s</string>
 
@@ -25,7 +25,7 @@
     <string name="contact_us">Contacto</string>
     <string name="powered_by">Impulsado por Ciencia Geek</string>
 
-    <string name="popup_admin_title">Login Administrador</string>
+    <string name="popup_admin_title">Sesión Administrador</string>
     <string name="popup_admin_description">Hey! Esta sección es sólo para Administradores de la Aplicación.</string>
     <string name="popup_admin_accept">Aceptar</string>
     <string name="popup_admin_cancel">Cancelar</string>
@@ -48,7 +48,7 @@
     <string name="notification_message">Mensaje de la notificación</string>
     <string name="notification_message_desc">Ven a verlo! 😎</string>
     <string name="notification_edit_message">Editar message</string>
-    <string name="notification_url_to_open">Url que a abrir (sólo si aplica)</string>
+    <string name="notification_url_to_open">Url a abrir (sólo si aplica)</string>
     <string name="notification_url_to_open_desc">Inserta la Url aquí</string>
     <string name="notification_send_now">Enviar notificación ahora</string>
 

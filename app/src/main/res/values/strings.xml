@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ciencia Geek</string>
+    <string name="app_name">PokeCoord App</string>
     <string name="adUnitId">ca-app-pub-3940256099942544~3347511713</string>
     <string name="app_version">Version %s</string>
 

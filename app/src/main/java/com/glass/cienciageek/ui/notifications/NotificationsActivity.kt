@@ -1,17 +1,16 @@
 package com.glass.cienciageek.ui.notifications
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.glass.cienciageek.R
+import com.glass.cienciageek.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_notifications.*
 
-class NotificationsActivity : AppCompatActivity() {
+class NotificationsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notifications)
 
+        setContentView(R.layout.activity_notifications)
         setupSpinners()
     }
 

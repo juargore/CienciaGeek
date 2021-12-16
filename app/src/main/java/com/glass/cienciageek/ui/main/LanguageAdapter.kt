@@ -9,6 +9,10 @@ import com.glass.cienciageek.R
 import com.glass.cienciageek.entities.Language
 import kotlinx.android.synthetic.main.item_spinner_language.view.*
 
+/**
+ * Adapter that help us to show the items on the language spinner.
+ * You can customize the views of each item and header on its own R.layout...
+ */
 class LanguageAdapter(context: Context): ArrayAdapter<Language>(context, 0, Language.values()) {
     private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 

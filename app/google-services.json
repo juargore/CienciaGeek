@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "742215961066",
+    "project_id": "pokecoord-f929b",
+    "storage_bucket": "pokecoord-f929b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742215961066:android:e93a12d62512c75cf44a93",
+        "android_client_info": {
+          "package_name": "com.glass.cienciageek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742215961066-avl25t4721kobh80gun2u1p4euafjo7m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKz63VVgHUZl4tx9_FA5w2WxYy3xJ9Vwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742215961066-avl25t4721kobh80gun2u1p4euafjo7m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

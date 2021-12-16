@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_charly" />
+        app:srcCompat="@drawable/logo_poke_coord_letters" />
 
     <TextView
         android:id="@+id/txtVersionMain"
