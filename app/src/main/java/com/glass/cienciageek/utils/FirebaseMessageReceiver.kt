@@ -7,6 +7,7 @@ import android.os.Build
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.text.format.DateFormat
 import com.glass.cienciageek.ui.main.MainActivity
 import android.widget.RemoteViews
@@ -17,40 +18,30 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import java.util.*
 
 class FirebaseMessageReceiver : FirebaseMessagingService() {
+
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        // First case when notifications are received via
-        // data event
-        // Here, 'title' and 'message' are the assumed names
-        // of JSON
-        // attributes. Since here we do not have any data
-        // payload, This section is commented out. It is
-        // here only for reference purposes.
-        /*if(remoteMessage.getData().size()>0){
-            showNotification(remoteMessage.getData().get("title"),
-                          remoteMessage.getData().get("message"));
-        }*/
-
-        // Second case when notification payload is received.
-        if (remoteMessage.notification != null) {
-            showNotification(
-                remoteMessage.notification!!.title,
-                remoteMessage.notification!!.body
-            )
-        }
+        showNotification(
+            remoteMessage.data["title"],
+            remoteMessage.data["body"],
+            remoteMessage.data["link"]
+        )
     }
 
     /**
      * Method to display the notifications.
      */
     @SuppressLint("UnspecifiedImmutableFlag")
-    private fun showNotification(title: String?, message: String?) {
+    private fun showNotification(title: String?, message: String?, link: String?) {
 
-        // Pass the intent to switch to the MainActivity
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = if(link == null) {
+            Intent(this, MainActivity::class.java)
+        } else {
+            Intent(Intent.ACTION_VIEW, Uri.parse(link))
+        }
 
         // Assign channel ID
         val channelId = "notification_channel"
@@ -63,7 +54,6 @@ class FirebaseMessageReceiver : FirebaseMessagingService() {
         )
 
         // Create a Builder object using NotificationCompat
-        // class. This will allow control over all the flags
         var builder = NotificationCompat.Builder(
             applicationContext,
             channelId

@@ -43,10 +43,14 @@
     <string name="notification_type">Tipo de notificación</string>
     <string name="notification_language">Lenguage de la notificación</string>
     <string name="notification_title">Título de la notificación</string>
-    <string name="notification_title_desc">NUEVO VIDEO EN CIENCIA GEEK</string>
+    <string name="notification_title_desc_esp">NUEVO VIDEO EN CIENCIA GEEK</string>
+    <string name="notification_title_desc_eng">WE HAVE A NEW VIDEO IN POKECOORD</string>
+
     <string name="notification_title_edit">Editar título</string>
     <string name="notification_message">Mensaje de la notificación</string>
-    <string name="notification_message_desc">Ven a verlo! 😎</string>
+    <string name="notification_message_desc_esp">Ven a verlo! 😎</string>
+    <string name="notification_message_desc_eng">Come to watch it! 😎</string>
+
     <string name="notification_edit_message">Editar message</string>
     <string name="notification_url_to_open">Url a abrir (sólo si aplica)</string>
     <string name="notification_url_to_open_desc">Inserta la Url aquí</string>

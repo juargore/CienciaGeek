@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -22,8 +23,12 @@ import com.glass.cienciageek.entities.UrlEspEng
 import com.glass.cienciageek.ui.BaseActivity
 import com.glass.cienciageek.ui.content.ContentFragment
 import com.glass.cienciageek.ui.notifications.NotificationsActivity
+import com.glass.cienciageek.utils.General.TOPIC_ENGLISH
+import com.glass.cienciageek.utils.General.TOPIC_SPANISH
+import com.glass.cienciageek.utils.General.getLanguageApp
 import com.glass.cienciageek.utils.General.saveLanguageApp
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener{
@@ -33,8 +38,27 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         setUpDrawerLayout()
+        setUpNotificationTopics()
+    }
+
+    private fun setUpNotificationTopics() {
+        val currentLanguage = getLanguageApp(this)
+        val topicToSubscribe = if(currentLanguage == "Spanish") TOPIC_SPANISH else TOPIC_ENGLISH
+
+        FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_SPANISH)
+        FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_ENGLISH)
+
+        FirebaseMessaging.getInstance().subscribeToTopic(topicToSubscribe)
+            .addOnCompleteListener { task ->
+                if(task.isSuccessful) {
+                    Log.e("--", "Device subscribed to topic successfully")
+                } else {
+                    Log.e("--", "Could not subscribe device to topic")
+                }
+            }
     }
 
     private fun setUpDrawerLayout() {

@@ -4,6 +4,9 @@ import android.content.Context
 
 object General {
 
+    const val TOPIC_SPANISH = "Spanish"
+    const val TOPIC_ENGLISH = "English"
+
     private const val LANGUAGE = "language"
 
     /**

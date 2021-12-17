@@ -1,17 +1,34 @@
 package com.glass.cienciageek.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.glass.cienciageek.R
+import com.glass.cienciageek.data.FirebaseApi
+import com.glass.cienciageek.data.network.RetrofitClientInstance
 import com.glass.cienciageek.ui.BaseActivity
+import com.glass.cienciageek.utils.General.TOPIC_ENGLISH
+import com.glass.cienciageek.utils.General.TOPIC_SPANISH
 import kotlinx.android.synthetic.main.activity_notifications.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Response
 
+@Suppress("DEPRECATION")
 class NotificationsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_notifications)
         setupSpinners()
+
+        btnSend.setOnClickListener {
+            sendNotification()
+        }
     }
 
     private fun setupSpinners() {
@@ -23,5 +40,64 @@ class NotificationsActivity : BaseActivity() {
 
         spinnerType.adapter = typesAdapter
         spinnerLanguage.adapter = languagesAdapter
+
+        spinnerLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, pos: Int, p3: Long) {
+                when(pos) {
+                    0 -> { // spanish
+                        etNotificationTitle.setText(resources.getString(R.string.notification_title_desc_esp))
+                        etNotificationMessage.setText(resources.getString(R.string.notification_message_desc_esp))
+                    }
+                    1 -> { // english
+                        etNotificationTitle.setText(resources.getString(R.string.notification_title_desc_eng))
+                        etNotificationMessage.setText(resources.getString(R.string.notification_message_desc_eng))
+                    }
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+    }
+
+    private fun sendNotification() {
+        val url = etNotificationUrl.text.toString()
+        val link = if(url.isEmpty()) null else url
+        val topic = when(spinnerLanguage.selectedItemPosition){
+            0 -> TOPIC_SPANISH
+            else -> TOPIC_ENGLISH
+        }
+
+        val data = JSONObject().apply {
+            put("title", etNotificationTitle.text.toString())
+            put("body", etNotificationMessage.text.toString())
+
+            if(link != null) {
+                put("link", link)
+            }
+        }
+
+        val json = JSONObject().apply {
+            put("to", "/topics/$topic")
+            put("collapse_key", "type_a")
+            put("data", data)
+        }
+
+        val body = RequestBody.create(
+            "application/json; charset=utf-8".toMediaTypeOrNull(),
+            JSONObject(json.toString()).toString()
+        )
+
+        val service = RetrofitClientInstance.retrofitInstance?.create(FirebaseApi::class.java)
+        val call = service?.sendPushNotification(body)
+
+        call?.enqueue(object : retrofit2.Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                Log.e("--", "Successful = ${response.isSuccessful}")
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.e("--", "Error = ${t.message}")
+            }
+        })
     }
 }
