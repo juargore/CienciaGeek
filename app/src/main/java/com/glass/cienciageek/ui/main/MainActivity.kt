@@ -32,7 +32,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_splash.*
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : BaseActivity() { //NavigationView.OnNavigationItemSelectedListener{
 
     private lateinit var toolbar: Toolbar
     private lateinit var drawerLayout: DrawerLayout
@@ -73,6 +73,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        /*
         drawerLayout = findViewById(R.id.drawer_layout)
         val toggle = ActionBarDrawerToggle(
             this,
@@ -99,25 +100,26 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             packageName,
             PackageManager.GET_ACTIVITIES)?.apply {
             v.text = resources.getString(R.string.app_version, versionName)
-        }
+        }*/
     }
 
     /**
      * What to do when back button (hardware) is pressed? -> Close side menu .
      */
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
-    }
+    }*/
 
     /**
      * Define what to do when each item from side menu is selected.
      * In this case, pass data to open correct url (english or spanish).
      */
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+    /*override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val links = when(item.itemId) {
             R.id.nav_home -> UrlEspEng(title = resources.getString(R.string.menu_home), url = resources.getString(R.string.url_home))
             R.id.nav_nests -> UrlEspEng(title = resources.getString(R.string.menu_nests), url = resources.getString(R.string.url_nests))
@@ -138,7 +140,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         drawerLayout.closeDrawer(GravityCompat.START)
 
         return true
-    }
+    }*/
 
     /**
      * Show popup for admin login and validate credentials to open new notifications screen.

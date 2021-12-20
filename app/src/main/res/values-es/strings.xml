@@ -56,7 +56,7 @@
     <string name="notification_url_to_open">Url a abrir (sólo si aplica)</string>
     <string name="notification_url_to_open_desc">Inserta la Url aquí</string>
     <string name="notification_send_now">Enviar notificación ahora</string>
-    <string name="notification_sent_success">Notificación enviada con éxito</string>
+    <string name="notification_sent_success">Notificación en %s enviada con éxito</string>
     <string name="notification_sent_fail">Error enviando la notificación. Intenta nuevamente.</string>
 
 </resources>

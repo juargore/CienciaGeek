@@ -99,7 +99,7 @@ class NotificationsActivity : BaseActivity() {
 
         call?.enqueue(object : retrofit2.Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_success), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_success, topic), Toast.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
