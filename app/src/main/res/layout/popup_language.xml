@@ -89,6 +89,15 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtWait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/popup_language_wait"
+            android:textColor="@color/main_blue"
+            android:visibility="gone" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 </layout>

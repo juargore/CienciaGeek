@@ -38,6 +38,7 @@
     <string name="popup_language_description">Descripción aquí</string>
     <string name="popup_language_english">Inglés</string>
     <string name="popup_language_spanish">Español</string>
+    <string name="popup_language_wait">Espera un momento…</string>
 
     <string name="notification_header">Enviar una notificación</string>
     <string name="notification_type">Tipo de notificación</string>
@@ -55,5 +56,7 @@
     <string name="notification_url_to_open">Url a abrir (sólo si aplica)</string>
     <string name="notification_url_to_open_desc">Inserta la Url aquí</string>
     <string name="notification_send_now">Enviar notificación ahora</string>
+    <string name="notification_sent_success">Notificación enviada con éxito</string>
+    <string name="notification_sent_fail">Error enviando la notificación. Intenta nuevamente.</string>
 
 </resources>

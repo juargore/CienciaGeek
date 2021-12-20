@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.glass.cienciageek.utils
 
 import android.content.Context
@@ -8,7 +9,6 @@ import android.os.Build
 import android.os.LocaleList
 import java.util.*
 
-@Suppress("DEPRECATION")
 class ContextUtils(base: Context) : ContextWrapper(base) {
 
     companion object {

@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.glass.cienciageek.ui.notifications
 
 import android.os.Bundle
@@ -5,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.glass.cienciageek.R
 import com.glass.cienciageek.data.FirebaseApi
 import com.glass.cienciageek.data.network.RetrofitClientInstance
@@ -18,8 +20,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 
-@Suppress("DEPRECATION")
 class NotificationsActivity : BaseActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,6 +33,9 @@ class NotificationsActivity : BaseActivity() {
         }
     }
 
+    /**
+     * Set up the spinners for notification type and notification language.
+     */
     private fun setupSpinners() {
         val listTypes = listOf("Youtube")
         val typesAdapter = ArrayAdapter(this, R.layout.spinner_item_simple, listTypes)
@@ -59,9 +64,11 @@ class NotificationsActivity : BaseActivity() {
         }
     }
 
+    /**
+     * Sample snippet to send the current notification with values from edittext.
+     */
     private fun sendNotification() {
         val url = etNotificationUrl.text.toString()
-        val link = if(url.isEmpty()) null else url
         val topic = when(spinnerLanguage.selectedItemPosition){
             0 -> TOPIC_SPANISH
             else -> TOPIC_ENGLISH
@@ -71,8 +78,8 @@ class NotificationsActivity : BaseActivity() {
             put("title", etNotificationTitle.text.toString())
             put("body", etNotificationMessage.text.toString())
 
-            if(link != null) {
-                put("link", link)
+            if(url.isNotEmpty()) {
+                put("link", url)
             }
         }
 
@@ -92,11 +99,12 @@ class NotificationsActivity : BaseActivity() {
 
         call?.enqueue(object : retrofit2.Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                Log.e("--", "Successful = ${response.isSuccessful}")
+                Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_success), Toast.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("--", "Error = ${t.message}")
+                Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_fail), Toast.LENGTH_SHORT).show()
             }
         })
     }

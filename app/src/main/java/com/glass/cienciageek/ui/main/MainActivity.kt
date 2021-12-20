@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.glass.cienciageek.ui.main
 
 import android.app.Dialog
@@ -44,6 +45,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setUpNotificationTopics()
     }
 
+    /**
+     * Here we define in which language the notification reaches each device
+     * depending on the language it has defined.
+     */
     private fun setUpNotificationTopics() {
         val currentLanguage = getLanguageApp(this)
         val topicToSubscribe = if(currentLanguage == "Spanish") TOPIC_SPANISH else TOPIC_ENGLISH
@@ -54,13 +59,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         FirebaseMessaging.getInstance().subscribeToTopic(topicToSubscribe)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful) {
-                    Log.e("--", "Device subscribed to topic successfully")
+                    Log.e("--", "Device subscribed to topic $topicToSubscribe successfully")
                 } else {
-                    Log.e("--", "Could not subscribe device to topic")
+                    Log.e("--", "Could not subscribe device to topic $topicToSubscribe")
                 }
             }
     }
 
+    /**
+     * Setup the side menu with custom animations, header, layouts, etc.
+     */
     private fun setUpDrawerLayout() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -94,6 +102,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    /**
+     * What to do when back button (hardware) is pressed? -> Close side menu .
+     */
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -102,6 +113,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    /**
+     * Define what to do when each item from side menu is selected.
+     * In this case, pass data to open correct url (english or spanish).
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val links = when(item.itemId) {
             R.id.nav_home -> UrlEspEng(title = resources.getString(R.string.menu_home), url = resources.getString(R.string.url_home))
@@ -125,7 +140,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return true
     }
 
-    @Suppress("DEPRECATION")
+    /**
+     * Show popup for admin login and validate credentials to open new notifications screen.
+     */
     private fun showDialogAdmin() {
         Dialog(this, R.style.FullDialogTheme).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -153,6 +170,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }.show()
     }
 
+    /**
+     * Show popup for language and refresh App so changes can take effect.
+     */
     private fun showDialogLanguage() {
         Dialog(this, R.style.FullDialogTheme).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -162,6 +182,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val spinner = findViewById<Spinner>(R.id.spinner)
             val accept = findViewById<Button>(R.id.btnAccept)
             val adapter = LanguageAdapter(context)
+            val txtWait = findViewById<TextView>(R.id.txtWait)
             var language = resources.getString(R.string.popup_language_spanish)
 
             spinner.adapter = adapter
@@ -175,8 +196,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             accept.setOnClickListener {
+                txtWait.visibility = View.VISIBLE
                 saveLanguageApp(context, language)
-                dismiss(); finish(); startActivity(intent)
+
+                Handler().postDelayed({
+                    dismiss()
+                    finish()
+                    startActivity(intent)
+                }, 1500)
             }
         }.show()
     }
@@ -190,6 +217,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return true
     }
 
+    /**
+     * What to do when item is selected at top|right menu.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.nav_admin -> { showDialogAdmin(); true }

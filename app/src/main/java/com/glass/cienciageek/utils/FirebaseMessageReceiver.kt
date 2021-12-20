@@ -81,7 +81,6 @@ class FirebaseMessageReceiver : FirebaseMessagingService() {
     /** Function to get the custom Design for the display of notification. */
     private fun getCustomDesign(title: String?, message: String?) = RemoteViews(
         applicationContext.packageName, R.layout.view_notification).apply {
-        //setImageViewResource(R.id.icon, R.drawable.ic_mexico_flag)
         setTextViewText(R.id.title, title)
         setTextViewText(R.id.message, message)
         setTextViewText(R.id.hour, getRemainingTime())

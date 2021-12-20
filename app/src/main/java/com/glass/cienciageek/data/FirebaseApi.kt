@@ -10,9 +10,13 @@ interface FirebaseApi {
 
     @Headers(
         "Content-Type: application/json",
-        "Authorization: key=AAAArM-Eyeo:APA91bE1-UdOg5c5gOS9dyteO00nGbzcyEBFka5fOZiKFCSJMuyYNjoyu1zimjsU5LzdZGBXAZUf9f6XVdWcy4ODIYSKbvOmn4v1o9ep6BtVNfLlLSxu_bqmlhKN5DIOhB5ndK9ivEnJ"
+        "Authorization: key=${API_KEY.key}"
     )
     @POST("send")
     fun sendPushNotification(@Body jsonObject: RequestBody): Call<Unit>
 
+}
+
+object API_KEY {
+    const val key = "AAAArM-Eyeo:APA91bE1-UdOg5c5gOS9dyteO00nGbzcyEBFka5fOZiKFCSJMuyYNjoyu1zimjsU5LzdZGBXAZUf9f6XVdWcy4ODIYSKbvOmn4v1o9ep6BtVNfLlLSxu_bqmlhKN5DIOhB5ndK9ivEnJ"
 }
