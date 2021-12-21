@@ -189,6 +189,7 @@
         android:layout_height="60dp"
         android:layout_margin="8dp"
         android:text="@string/notification_send_now"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

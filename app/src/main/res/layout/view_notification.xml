@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:paddingStart="3dp"
-            android:textColor="#242628"
+            android:textColor="@color/title_notification_color"
             android:textSize="15sp"
             tools:text="Title" />
 
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="3dp"
-            android:textColor="#595A5B"
+            android:textColor="@color/subtitle_notification_color"
             android:textSize="14sp"
             tools:text="Message" />
 

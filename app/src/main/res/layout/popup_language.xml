@@ -85,7 +85,8 @@
                 android:layout_height="48dp"
                 android:layout_marginEnd="11dp"
                 android:layout_weight="1"
-                android:text="@string/popup_admin_accept" />
+                android:text="@string/popup_admin_accept"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

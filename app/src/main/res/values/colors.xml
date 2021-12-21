@@ -6,6 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <color name="title_notification_color">#242628</color>
+    <color name="subtitle_notification_color">#595A5B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#D5D8DC</color>
