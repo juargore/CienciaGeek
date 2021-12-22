@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION")
 package com.glass.cienciageek.ui.content
 
 import android.content.Intent
@@ -5,7 +6,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,6 @@ import com.glass.cienciageek.entities.UrlEspEng
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.RequestConfiguration
 import kotlinx.android.synthetic.main.fragment_content.*
 
 /**
@@ -61,8 +60,6 @@ class ContentFragment : Fragment() {
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
-        RequestConfiguration.Builder().setTestDeviceIds(listOf("152020E3172538813A1EAD9471F364C3"))
-
         setUpWebView()
         setUpBottomSheet()
 
@@ -72,7 +69,6 @@ class ContentFragment : Fragment() {
     /**
      * load the url on webView + show/hide progress animation on screen.
      */
-    @Suppress("DEPRECATION")
     private fun setUpWebView() {
         rootView.findViewById<WebView>(R.id.webView).also {
             it.loadUrl(links.url)
