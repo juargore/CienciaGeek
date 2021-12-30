@@ -11,6 +11,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_nests">Pokemon nests</string>
     <string name="menu_farming">Farming zones</string>
+    <string name="menu_shiny_rates">Shiny rates</string>
     <string name="menu_community">Community day</string>
     <string name="menu_hours">Spotlight hour</string>
     <string name="menu_news">News</string>
@@ -18,6 +19,7 @@
     <string name="url_home">https://app.pokecoord.com/</string>
     <string name="url_nests">https://app.pokecoord.com/pokemon-nests/ </string>
     <string name="url_farming">https://app.pokecoord.com/pokemon-go-locations/ </string>
+    <string name="url_shiny_rates">https://app.pokecoord.com/pokemon-shiny-rates/ </string>
     <string name="url_community">https://app.pokecoord.com/pokemon-go-community-day/ </string>
     <string name="url_hours">https://app.pokecoord.com/pokemon-spotlight-hour/ </string>
     <string name="url_news">https://app.pokecoord.com/category/pokemon-go-news/ </string>

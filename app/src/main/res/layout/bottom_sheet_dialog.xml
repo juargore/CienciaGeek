@@ -80,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,32 +89,31 @@
 
                 <ImageView
                     android:id="@+id/btnFacebook"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_facebook" />
 
                 <ImageView
                     android:id="@+id/btnYoutube"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_youtube" />
 
                 <ImageView
                     android:id="@+id/btnTwitter"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_twitter" />
 
                 <ImageView
-                    android:id="@+id/btnInstagram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCien"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
-                    app:srcCompat="@drawable/ic_instagram" />
+                    app:srcCompat="@drawable/logo_cien" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

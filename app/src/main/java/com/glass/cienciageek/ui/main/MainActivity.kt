@@ -1,23 +1,21 @@
 @file:Suppress("DEPRECATION")
 package com.glass.cienciageek.ui.main
 
-import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.Window
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.glass.cienciageek.BuildConfig
 import com.glass.cienciageek.R
 import com.glass.cienciageek.entities.Language
 import com.glass.cienciageek.entities.UrlEspEng
@@ -28,6 +26,8 @@ import com.glass.cienciageek.utils.General.TOPIC_ENGLISH
 import com.glass.cienciageek.utils.General.TOPIC_SPANISH
 import com.glass.cienciageek.utils.General.getLanguageApp
 import com.glass.cienciageek.utils.General.saveLanguageApp
+import com.glass.cienciageek.utils.extensions.getAsText
+import com.glass.cienciageek.utils.extensions.getDialog
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -117,7 +117,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      * Define what to do when each item from side menu is selected.
      * In this case, pass data to open correct url (english or spanish).
      */
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val links = when(item.itemId) {
             R.id.nav_home -> UrlEspEng(title = resources.getString(R.string.menu_home), url = resources.getString(R.string.url_home))
@@ -125,6 +124,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_farming -> UrlEspEng(title = resources.getString(R.string.menu_farming), url = resources.getString(R.string.url_farming))
             R.id.nav_community -> UrlEspEng(title = resources.getString(R.string.menu_community), url = resources.getString(R.string.url_community))
             R.id.nav_hour -> UrlEspEng(title = resources.getString(R.string.menu_hours), url = resources.getString(R.string.url_hours))
+            R.id.nav_shiny -> UrlEspEng(title = resources.getString(R.string.menu_shiny_rates), url = resources.getString(R.string.url_shiny_rates))
             else -> UrlEspEng(title = resources.getString(R.string.menu_news), url = resources.getString(R.string.url_news))
         }
 
@@ -145,11 +145,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      * Show popup for admin login and validate credentials to open new notifications screen.
      */
     private fun showDialogAdmin() {
-        Dialog(this, R.style.FullDialogTheme).apply {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
-            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setContentView(R.layout.popup_credentials)
-
+        with(getDialog(this, R.layout.popup_credentials)) {
             val username = findViewById<EditText>(R.id.etUser)
             val password = findViewById<EditText>(R.id.etPass)
             val button = findViewById<Button>(R.id.btnAccept)
@@ -157,8 +153,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             //TODO
             button.setOnClickListener {
-                if(username.text.toString().trim() == "" && password.text.toString().trim() == "") {
-                //if(username.text.toString().trim() == "pokec00rd" && password.text.toString().trim() == "M1gUelit080") {
+                //if(username.getAsText() == "" && password.getAsText() == "") {
+                if(username.getAsText() == "pokec00rd" && password.getAsText() == "M1gUelit080") {
                     error.visibility = View.GONE
                     startActivity(Intent(this@MainActivity, NotificationsActivity::class.java))
                     this.dismiss()
@@ -169,18 +165,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     }, 2500)
                 }
             }
-        }.show()
+        }
     }
 
     /**
      * Show popup for language and refresh App so changes can take effect.
      */
     private fun showDialogLanguage() {
-        Dialog(this, R.style.FullDialogTheme).apply {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
-            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setContentView(R.layout.popup_language)
-
+        with(getDialog(this, R.layout.popup_language)) {
             val spinner = findViewById<Spinner>(R.id.spinner)
             val accept = findViewById<Button>(R.id.btnAccept)
             val adapter = LanguageAdapter(context)
@@ -190,7 +182,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             spinner.adapter = adapter
             spinner.setSelection(1)
 
-            spinner.onItemSelectedListener =  object : AdapterView.OnItemSelectedListener{
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
                 override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, p3: Long) {
                     language = (parent?.getItemAtPosition(pos) as Language).language
@@ -207,15 +199,18 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     startActivity(intent)
                 }, 1500)
             }
-        }.show()
+        }
     }
 
     /**
      * comment/uncomment the second line to show/hide the administrator menu.
      */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        /*if(BuildConfig.BUILD_TYPE == "release") {
+            menu?.findItem(R.id.nav_admin)?.isVisible = false
+        }*/
+
         menuInflater.inflate(R.menu.home_admin_menu, menu)
-        //menu?.findItem(R.id.nav_admin)?.isVisible = false
         return true
     }
 

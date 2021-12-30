@@ -13,6 +13,7 @@ import com.glass.cienciageek.data.network.RetrofitClientInstance
 import com.glass.cienciageek.ui.BaseActivity
 import com.glass.cienciageek.utils.General.TOPIC_ENGLISH
 import com.glass.cienciageek.utils.General.TOPIC_SPANISH
+import com.glass.cienciageek.utils.extensions.getAsText
 import kotlinx.android.synthetic.main.activity_notifications.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -68,15 +69,17 @@ class NotificationsActivity : BaseActivity() {
      * Sample snippet to send the current notification with values from edittext.
      */
     private fun sendNotification() {
-        val url = etNotificationUrl.text.toString()
+        progress.visibility = View.VISIBLE
+
+        val url = etNotificationUrl.getAsText()
         val topic = when(spinnerLanguage.selectedItemPosition){
             0 -> TOPIC_SPANISH
             else -> TOPIC_ENGLISH
         }
 
         val data = JSONObject().apply {
-            put("title", etNotificationTitle.text.toString())
-            put("body", etNotificationMessage.text.toString())
+            put("title", etNotificationTitle.getAsText())
+            put("body", etNotificationMessage.getAsText())
 
             if(url.isNotEmpty()) {
                 put("link", url)
@@ -100,11 +103,13 @@ class NotificationsActivity : BaseActivity() {
         call?.enqueue(object : retrofit2.Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_success, topic), Toast.LENGTH_SHORT).show()
+                progress.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
                 Log.e("--", "Error = ${t.message}")
                 Toast.makeText(this@NotificationsActivity, resources.getString(R.string.notification_sent_fail), Toast.LENGTH_SHORT).show()
+                progress.visibility = View.GONE
             }
         })
     }

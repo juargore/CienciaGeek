@@ -14,7 +14,7 @@ open class BaseActivity : AppCompatActivity() {
         val localeToSwitchTo = getLanguageApp(context)
 
         val localeUpdatedContext = ContextUtils.updateLocale(context,
-            if (localeToSwitchTo.equals(context.resources.getString(R.string.popup_language_spanish), true)) {
+            if (localeToSwitchTo.contains("spa", true)) {
                 Locale("es")
             } else {
                 Locale("en")

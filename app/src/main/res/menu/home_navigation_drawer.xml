@@ -31,6 +31,11 @@
             android:title="@string/menu_hours" />
 
         <item
+            android:id="@+id/nav_shiny"
+            android:icon="@drawable/ic_pokeball"
+            android:title="@string/menu_shiny_rates" />
+
+        <item
             android:id="@+id/nav_news"
             android:icon="@drawable/ic_pokeball"
             android:title="@string/menu_news" />

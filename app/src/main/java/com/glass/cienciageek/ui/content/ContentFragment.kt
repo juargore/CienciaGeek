@@ -1,6 +1,7 @@
 @file:Suppress("DEPRECATION")
 package com.glass.cienciageek.ui.content
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -38,7 +39,6 @@ class ContentFragment : Fragment() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let{
             links = it.getSerializable("links") as UrlEspEng
         }
@@ -68,9 +68,18 @@ class ContentFragment : Fragment() {
 
     /**
      * load the url on webView + show/hide progress animation on screen.
+     * Also enable javascript to display content correctly on webView.
      */
+    @SuppressLint("SetJavaScriptEnabled")
     private fun setUpWebView() {
         rootView.findViewById<WebView>(R.id.webView).also {
+
+            with(it.settings) {
+                javaScriptEnabled = true
+                loadWithOverviewMode = true
+                useWideViewPort = true
+            }
+
             it.loadUrl(links.url)
             it.webViewClient = object : WebViewClient(){
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -89,14 +98,16 @@ class ContentFragment : Fragment() {
     }
 
     private fun setUpBottomSheet() {
-        val urlFacebook = "https://www.facebook.com/pokecoord/"
         val urlTwitter = "https://twitter.com/pokecoord"
+        val urlFacebook = "https://www.facebook.com/pokecoord/"
         val urlYoutube = "https://youtube.com/channel/UCkkiDorjnq6HleT-oW467rg"
+        val urlCien = "https://play.google.com/store/apps/details?id=com.herreralemus.iv100.client"
 
         with(rootView.findViewById<ConstraintLayout>(R.id.parentLayout)) {
             onClickButton(findViewById(R.id.btnFacebook), urlFacebook)
             onClickButton(findViewById(R.id.btnTwitter), urlTwitter)
             onClickButton(findViewById(R.id.btnYoutube), urlYoutube)
+            onClickButton(findViewById(R.id.btnCien), urlCien)
         }
     }
 

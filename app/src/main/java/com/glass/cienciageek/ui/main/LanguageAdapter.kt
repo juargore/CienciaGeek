@@ -13,7 +13,14 @@ import kotlinx.android.synthetic.main.item_spinner_language.view.*
  * Adapter that help us to show the items on the language spinner.
  * You can customize the views of each item and header on its own R.layout...
  */
-class LanguageAdapter(context: Context): ArrayAdapter<Language>(context, 0, Language.values()) {
+class LanguageAdapter(context: Context): ArrayAdapter<Language>(
+    context,
+    0,
+    listOf(
+        Language(context.resources.getString(R.string.popup_language_spanish), R.drawable.ic_mexico_flag),
+        Language(context.resources.getString(R.string.popup_language_english), R.drawable.ic_usa_flag)
+    )
+) {
     private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
