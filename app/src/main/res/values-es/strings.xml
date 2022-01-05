@@ -48,17 +48,20 @@
     <string name="notification_title">Título de la notificación</string>
     <string name="notification_title_desc_esp">NUEVO VIDEO EN CIENCIA GEEK</string>
     <string name="notification_title_desc_eng">WE HAVE A NEW VIDEO IN POKECOORD</string>
-
     <string name="notification_title_edit">Editar título</string>
     <string name="notification_message">Mensaje de la notificación</string>
     <string name="notification_message_desc_esp">Ven a verlo! 😎</string>
     <string name="notification_message_desc_eng">Come to watch it! 😎</string>
-
     <string name="notification_edit_message">Editar message</string>
     <string name="notification_url_to_open">Url a abrir (sólo si aplica)</string>
     <string name="notification_url_to_open_desc">Inserta la Url aquí</string>
     <string name="notification_send_now">Enviar notificación ahora</string>
     <string name="notification_sent_success">Notificación en %s enviada con éxito</string>
     <string name="notification_sent_fail">Error enviando la notificación. Intenta nuevamente.</string>
+
+    <string name="url_twitter">https://twitter.com/ciencia_geek</string>
+    <string name="url_facebook">https://www.facebook.com/somoscienciageek/</string>
+    <string name="url_youtube">https://www.youtube.com/cienciageek</string>
+    <string name="url_cien">https://play.google.com/store/apps/details?id=com.herreralemus.iv100.client</string>
 
 </resources>

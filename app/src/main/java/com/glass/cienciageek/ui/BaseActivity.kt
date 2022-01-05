@@ -2,7 +2,6 @@ package com.glass.cienciageek.ui
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import com.glass.cienciageek.R
 import com.glass.cienciageek.utils.ContextUtils
 import com.glass.cienciageek.utils.General.getLanguageApp
 import java.util.*

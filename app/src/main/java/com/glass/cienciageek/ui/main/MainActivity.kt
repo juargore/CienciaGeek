@@ -3,7 +3,6 @@ package com.glass.cienciageek.ui.main
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -15,7 +14,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.glass.cienciageek.BuildConfig
 import com.glass.cienciageek.R
 import com.glass.cienciageek.entities.Language
 import com.glass.cienciageek.entities.UrlEspEng
@@ -151,7 +149,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val button = findViewById<Button>(R.id.btnAccept)
             val error = findViewById<TextView>(R.id.txtError)
 
-            //TODO
             button.setOnClickListener {
                 //if(username.getAsText() == "" && password.getAsText() == "") {
                 if(username.getAsText() == "pokec00rd" && password.getAsText() == "M1gUelit080") {
@@ -206,11 +203,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      * comment/uncomment the second line to show/hide the administrator menu.
      */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        /*if(BuildConfig.BUILD_TYPE == "release") {
-            menu?.findItem(R.id.nav_admin)?.isVisible = false
-        }*/
-
         menuInflater.inflate(R.menu.home_admin_menu, menu)
+        //menu?.findItem(R.id.nav_admin)?.isVisible = false
         return true
     }
 

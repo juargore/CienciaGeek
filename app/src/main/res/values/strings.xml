@@ -59,4 +59,9 @@
     <string name="notification_sent_success">Notification in %s sent successfully</string>
     <string name="notification_sent_fail">Error sending notification. Try again.</string>
 
+    <string name="url_twitter">https://twitter.com/pokecoord</string>
+    <string name="url_facebook">https://www.facebook.com/pokecoord/</string>
+    <string name="url_youtube">https://youtube.com/channel/UCkkiDorjnq6HleT-oW467rg</string>
+    <string name="url_cien">https://play.google.com/store/apps/details?id=com.herreralemus.iv100.client</string>
+    
 </resources>

@@ -98,16 +98,11 @@ class ContentFragment : Fragment() {
     }
 
     private fun setUpBottomSheet() {
-        val urlTwitter = "https://twitter.com/pokecoord"
-        val urlFacebook = "https://www.facebook.com/pokecoord/"
-        val urlYoutube = "https://youtube.com/channel/UCkkiDorjnq6HleT-oW467rg"
-        val urlCien = "https://play.google.com/store/apps/details?id=com.herreralemus.iv100.client"
-
-        with(rootView.findViewById<ConstraintLayout>(R.id.parentLayout)) {
-            onClickButton(findViewById(R.id.btnFacebook), urlFacebook)
-            onClickButton(findViewById(R.id.btnTwitter), urlTwitter)
-            onClickButton(findViewById(R.id.btnYoutube), urlYoutube)
-            onClickButton(findViewById(R.id.btnCien), urlCien)
+        safeWith(rootView.findViewById<ConstraintLayout>(R.id.parentLayout), requireContext()) { lay, c ->
+            onClickButton(lay.findViewById(R.id.btnFacebook), c.resources.getString(R.string.url_facebook))
+            onClickButton(lay.findViewById(R.id.btnTwitter), c.resources.getString(R.string.url_twitter))
+            onClickButton(lay.findViewById(R.id.btnYoutube), c.resources.getString(R.string.url_youtube))
+            onClickButton(lay.findViewById(R.id.btnCien), c.resources.getString(R.string.url_cien))
         }
     }
 
@@ -115,5 +110,9 @@ class ContentFragment : Fragment() {
         v.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }
+    }
+
+    private inline fun <T1: Any, T2: Any, R: Any> safeWith(p1: T1?, p2: T2?, block: (T1, T2) -> R?): R? {
+        return if (p1 != null && p2 != null) block(p1, p2) else null
     }
 }
